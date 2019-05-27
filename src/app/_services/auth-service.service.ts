@@ -3,6 +3,7 @@ import {BaseApiServiceService} from './base-api-service.service';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../_model/user';
 import { Observable } from 'rxjs';
+import {ok} from 'assert';
 
 @Injectable()
 export class AuthService extends BaseApiServiceService {
@@ -18,7 +19,7 @@ export class AuthService extends BaseApiServiceService {
         const url = this.buildRemoteRestUrl('security/login');
         this.http.post(url, {username, password}).subscribe(
             res => {
-              if (res[0]) {
+              if (res[0] = 200){
                 sessionuser = (<User>res[0]);
                 console.log('loggato');
                 // Salvataggio dell'utente loggato
