@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import {AuthService} from './_services/auth-service.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {NewBookingComponent} from './booking/new.booking.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewBookingComponent,
   ],
   imports: [
     BrowserModule,

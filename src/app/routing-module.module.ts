@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './_services/auth-guard.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {NewBookingComponent} from './booking/new.booking.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+  },
+  {
+    path: 'newBooking',
+    component: NewBookingComponent,
   }
 ];
 
