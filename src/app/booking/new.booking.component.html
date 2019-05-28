@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="container">
+  <span> Destinazione:
+<select>
+  <option></option>
+  <option [ngValue]="destination" *ngFor="let destination of destinationData " value="{destination.id}">{{destination.name}}</option>
+</select>
+  </span>
+  </div>

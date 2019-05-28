@@ -19,8 +19,8 @@ export class AuthService extends BaseApiServiceService {
         const url = this.buildRemoteRestUrl('security/login');
         this.http.post(url, {username, password}).subscribe(
             res => {
-              if (res[0] = 200){
-                sessionuser = (<User>res[0]);
+              if (res) {
+                sessionuser = (res as User);
                 console.log('loggato');
                 // Salvataggio dell'utente loggato
                 this.storeSessionUser(sessionuser);

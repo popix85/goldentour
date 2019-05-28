@@ -11,7 +11,7 @@ import {LoginComponent} from './login/login.component';
 import {AuthService} from './_services/auth-service.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NewBookingComponent} from './booking/new.booking.component';
-
+import {DestinationService} from './_services/destination-service';
 
 const routes: Routes = [
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     AppRoutingModuleModule,
     HttpClientModule,
   ],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, DestinationService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
