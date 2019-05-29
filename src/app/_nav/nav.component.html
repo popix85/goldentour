@@ -1,0 +1,10 @@
+
+
+<nav *ngIf="showNavbar" role='navigation'>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#" [routerLink]="['/users']">Users</a></li>
+        <li><a href="#">Clients</a></li>
+        <li><a href="#" (click)="logout()">Logout</a></li>
+    </ul>
+</nav>

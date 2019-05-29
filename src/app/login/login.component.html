@@ -1,49 +1,24 @@
-<form class="user-formmport {Role} from './role';
 
-export class User {
-  id: number;
-  name: string;
-  lastname: string;
-  email: string;
-  username: string;
-  password: string;
-  active: string;
-  token: string;
-  address: string;
-  city: string;
-  birtday: Date;
-  birthplace: string;
-  cap: number;
-  role: Role;
-  constructor() {
-    this.id = 0;
-  }
-}" #f="ngForm">
+<form #f="ngForm">
+<div class="container">
+    <section id="content">
+        <form action="" #f="ngForm">
+            <h1>Login Form</h1>
+            <div>
+                <input type="text" placeholder="Username" name="username" id="username"
+                       [(ngModel)]="user.username" required #username="ngModel"/>
+            </div>
+            <div>
+                <input type="password" placeholder="Password" name="password" id="password"
+                       [(ngModel)]="user.password" required #password="ngModel"/>
+            </div>
+            <div>
+                <input [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
+                       (click)="login()"
+                       [disabled]="!f.valid" type="submit" value="Log in" />
+            </div>
+        </form>
 
-    <div class="form-group">
-      <label for="username">Username</label>
-  
-      <input  name="username" id="username"
-              [(ngModel)]="user.username" required
-              #username="ngModel"/>
-  
-      <span [hidden]="username.valid || username.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-    </div>
-  
-    <div class="form-group">
-      <label for="password">Password</label>
-  
-      <input name="password" id="password"
-              [(ngModel)]="user.password" required
-              #password="ngModel"/>
-      <p>
-        <span [hidden]="password.valid || password.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
-      </p>
-    </div>
-  
-    <div class="form-group form-footer">
-      <button [ngClass]="{'btn-save': f.valid, 'btn-save-disabled':!f.valid}"
-              (click)="login()"
-              [disabled]="!f.valid">Save</button>
-    </div>
-  </form>
+    </section>
+</div>
+</form>
