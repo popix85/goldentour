@@ -5,8 +5,8 @@ import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './_services/auth-guard.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NewBookingComponent} from './booking/new.booking.component';
-// import {BookingService} from './_services/booking.service';
-// import {BookingDetailComponent} from './booking-detail/booking-detail.component';
+import {BookingService} from './_services/booking.service';
+import {BookingDetailComponent} from './booking-detail/booking-detail.component';
 
 const routes: Routes = [
   {
@@ -27,10 +27,10 @@ const routes: Routes = [
     path: 'newBooking',
     component: NewBookingComponent,
   },
-  /*{
+  {
     path: 'dashboard/:id/detail',
     component: BookingDetailComponent,
-  }*/
+  }
 ];
 
 @NgModule({
@@ -43,7 +43,7 @@ const routes: Routes = [
   ],
   providers: [
     AuthGuardService,
-  //  BookingService
+   BookingService
   ],
   declarations: []
 })
