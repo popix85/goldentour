@@ -18,4 +18,11 @@ export class User {
   constructor() {
     this.id = 0;
   }
+
+  isOperator(): boolean {
+    if (this.role.name === 'Tour_Operator') {
+      return true;
+    }
+    return false;
+  }
 }

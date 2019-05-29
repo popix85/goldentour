@@ -12,6 +12,9 @@ import {AuthService} from './_services/auth-service.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NewBookingComponent} from './booking/new.booking.component';
 import {DestinationService} from './_services/destination-service';
+// import {BookingDetailComponent} from './booking-detail/bo2oking-detail.component';
+// import {BookingService} from './_services/booking-service';
+
 
 const routes: Routes = [
   {
@@ -26,7 +29,9 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    NewBookingComponent,
+  //  BookingDetailComponent,
+    DashboardComponent,
+  //  NewBookingComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ const routes: Routes = [
     AppRoutingModuleModule,
     HttpClientModule,
   ],
-  providers: [UserService, AuthService, DestinationService],
+  providers: [UserService, AuthService, /*BookingService, ,*/ DestinationService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
