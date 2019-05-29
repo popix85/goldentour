@@ -1,8 +1,59 @@
 <div class="container">
-  <span> Destinazione:
-<select>
+  <div>
+    Destinazione:
+      <select (change)="showAccomodation($event)" >
   <option></option>
-  <option [ngValue]="destination" *ngFor="let destination of destinationData " value="{destination.id}">{{destination.name}}</option>
-</select>
-  </span>
+  <option *ngFor="let destination of destinationData" value="{{destination.destinationId}}" >{{destination.name}}</option>
+  </select>
+    Alloggio:
+  <select>
+  <option [ngValue]="accomodation.id" *ngFor="let accomodation of accomodationData " value="{{accomodation.id}}" >{{accomodation.name}}</option>
+  </select>
   </div>
+  <div>
+    <div>
+      <form action="#">
+        Descrizione: <input type="text" name="description">
+        Numero di persone: <input type="number" name="Npers"><br>
+        Data di inizio <input type="date" name="Sdate">
+        Data di fine <input type="date" name="Edate"><br>
+        <input type="submit" value="Verifica mezzo">
+      </form>
+    </div>
+   Transporto:
+       <select>
+    <option></option>
+    </select>
+  </div>
+  <div>
+    <form>
+      <input type="submit" value="Conferma veicolo">
+    </form>
+  </div>
+  <div>
+    <form>
+      Nome: <input type="text" name="name">
+      Cognome: <input type="text" name="lastname"><br>
+      Username: <input type="text" name="username">
+      Password: <input type="text" name="password"><br>
+      Indirizzo: <input type="text" name="address">
+      Città: <input type="text" name="city"><br>
+      Giorno di nascita: <input type="date" name="Bdate">
+      Luogo di nascita: <input type="text" name="BPlace"><br>
+      Cap: <input type="text" name="cap">
+      Email: <input type="text" name="Mail"><br>
+      <input type="submit" value="Cerca utente" (click)="findUser(name,lastname)">
+      <input type="submit" value="Nuovo utente">
+    </form>
+  </div>
+  <div><form><input type="submit" value="Inserisci Prenotazione"></form></div>
+</div>
+
+
+
+
+
+
+
+
+

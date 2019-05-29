@@ -1,5 +1,5 @@
 export class Destination {
-  id: number;
+  destinationId: number;
   name: string;
   country: string;
 }
