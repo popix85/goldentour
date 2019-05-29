@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {BaseApiServiceService} from './base-api-service.service';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../_model/user';
-import { Observable } from 'rxjs';
-import {ok} from 'assert';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable()
 export class AuthService extends BaseApiServiceService {
@@ -19,8 +18,8 @@ export class AuthService extends BaseApiServiceService {
         const url = this.buildRemoteRestUrl('security/login');
         this.http.post(url, {username, password}).subscribe(
             res => {
-              if (res[0] = 200){
-                sessionuser = (<User>res[0]);
+              if (res) {
+                sessionuser = ( <User> res);
                 console.log('loggato');
                 // Salvataggio dell'utente loggato
                 this.storeSessionUser(sessionuser);
@@ -54,12 +53,15 @@ export class AuthService extends BaseApiServiceService {
    * @returns {User}
    */
   public getLoggedUserFromSessionStorage(): User {
-    return JSON.parse(localStorage.getItem('currentUser'));
+    if (localStorage) {
+      return JSON.parse(localStorage.getItem('currentUser'));
+    }
+    return null;
   }
 
   isLoggedUser(): boolean {
     const user: User = this.getLoggedUserFromSessionStorage();
-    if (user && user.token) {
+    if (user) {
       return true;
     }
     return false;

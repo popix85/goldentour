@@ -6,11 +6,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {UserService} from './_services/user.service';
 import {AppRoutingModuleModule} from './routing-module.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import {AuthService} from './_services/auth-service.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
-
+import {NavComponent} from './_nav/nav.component';
+import {BookingDetailComponent} from './booking-detail/booking-detail.component';
+import {BookingService} from './_services/booking.service';
 
 const routes: Routes = [
   {
@@ -23,8 +25,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    BookingDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ const routes: Routes = [
     AppRoutingModuleModule,
     HttpClientModule,
   ],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, BookingService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,9 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}!
-  </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <img width="100" alt="GoldenTour Logo" src="../../img/GoldenTour_Logo.jpg">
+    </div>
+    <div class="col-8">
+      <h3>{{ title }}</h3>
+    </div>
+  </div>
 
-  <router-outlet></router-outlet>
+  <div *ngIf="showNavbar">
+    <app-nav [showNavbar]="showNavbar"></app-nav>
+  </div>
+
+  <router-outlet (activate)="onActivate()"></router-outlet>
 
 </div>

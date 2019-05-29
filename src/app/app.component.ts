@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from './_model/user';
-import {Router} from '@angular/router';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+
 import {AuthService} from './_services/auth-service.service';
 
 @Component({
@@ -24,4 +23,5 @@ export class AppComponent implements OnInit {
   onActivate() {
     this.showNavbar = this.authService.isLoggedUser();
   }
+
 }
