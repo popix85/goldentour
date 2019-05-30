@@ -10,11 +10,11 @@ export class Booking {
     startDate: Date;
     endDate: Date;
     price: number;
-    user: User;
-    transport: Transport;
-    accomodatoion: Accomodation;
-    destination: Destination;
-    tourOperator: User;
+    user: number;
+    transport: number;
+    accomodatoion: number;
+    destination: number;
+    tourOperator: number;
     nameTO: string;
     lastnameTO: string;
     nameUser: string;
@@ -22,7 +22,6 @@ export class Booking {
     nameDestination: string;
 
     constructor() {
-        this.id = 0;
     }
 }
 

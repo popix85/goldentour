@@ -1,0 +1,62 @@
+<form class="booking-form" #f="ngForm">
+
+    <div>
+        Destinazione:
+        <select (change)="showAccomodation($event)" >
+            <option *ngFor="let destination of destinationData"
+                    value="{{destination.idDestination}}" >{{destination.name}}</option>
+        </select><br>
+        Alloggio:
+        <select (change)="setAccomodation($event)" >
+            <option *ngFor="let accomodation of accomodationData "
+                    value="{{accomodation.id}}">{{accomodation.name}}</option>
+        </select>
+    </div>
+
+
+    <div>Descrizione<input type="Text" name="description" size="20" [(ngModel)]="booking.description"  value="{{booking.description}}"></div>
+    <br>
+    <div>Numero Persone<input type="number" name="personNumber" size="20" [(ngModel)]="booking.personNumber" value="{{booking.personNumber}}"></div>
+    <br>
+    <div>Data Partenza<input type="text" name="startDate" size="20" [(ngModel)]="booking.startDate" value="{{booking.startDate}}"></div>
+    <br>
+    <div>Data Ritorno<input type="text" name="endDate" size="20" [(ngModel)]="booking.endDate" value="{{booking.endDate}}"></div>
+    <br>
+
+    <div>
+        <form>
+            <input type="submit" value="Conferma veicolo">
+        </form>
+    </div>
+    <div>
+        <form>
+
+            <div>Username<input type="Text" name="username" size="20" [(ngModel)]="user.username"  value="{{user.username}}"></div>
+            <br>
+            <div>Password<input type="Text" name="password" size="20" [(ngModel)]="user.password" value="{{user.password}}"></div>
+            <br>
+            <div>Email<input type="Text" name="email" size="20" [(ngModel)]="user.email" value="{{user.email}}"></div>
+            <br>
+            <div>Nome<input type="Text" name="name" size="20" [(ngModel)]="user.name" value="{{user.name}}"></div>
+            <br>
+            <div>Cognome<input type="Text" name="lastname" size="20" [(ngModel)]="user.lastname" value="{{user.lastname}}"></div>
+            <br>
+            <div>Indirizzo<input type="Text" name="address" size="20" [(ngModel)]="user.address" value="{{user.address}}"></div>
+            <br>
+            <div>Città<input type="Text" name="city" size="20" [(ngModel)]="user.city" value="{{user.city}}"></div>
+            <br>
+            <div>Data di nascita<input type="Text" name="birthday" size="20" [(ngModel)]="user.birtday" value="{{user.birtday | date}}"></div>
+            <br>
+            <div>Luogo di nascita<input type="Text" name="birthplace" size="20" [(ngModel)]="user.birthplace" value="{{user.birthplace}}"></div>
+            <br>
+            <div>Cap<input type="Text" name="cap" size="20" [(ngModel)]="user.cap" value="{{user.cap}}"></div>
+            <br>
+            <div><input type="submit" value="Cerca utente" (click)="findUser(user)"></div>
+            <br>
+            <div><input type="submit" value="Nuovo utente" (click)="adduser()"></div>
+        </form>
+    </div>
+    <div>
+        <form><input type="submit" value="Inserisci Prenotazione" (click)="createBooking(booking)"></form>
+    </div>
+</form>
