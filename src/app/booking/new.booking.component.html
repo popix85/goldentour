@@ -7,7 +7,7 @@
                     value="{{destination.idDestination}}" >{{destination.name}}</option>
         </select><br>
         Alloggio:
-        <select (change)="setAccomodation($event)" >
+        <select (click)="setAccomodation($event)" >
             <option *ngFor="let accomodation of accomodationData "
                     value="{{accomodation.id}}">{{accomodation.name}}</option>
         </select>

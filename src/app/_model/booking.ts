@@ -12,7 +12,7 @@ export class Booking {
     price: number;
     user: number;
     transport: number;
-    accomodatoion: number;
+    accomodation: number;
     destination: number;
     tourOperator: number;
     nameTO: string;

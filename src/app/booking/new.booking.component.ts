@@ -79,6 +79,6 @@ export class NewBookingComponent implements OnInit {
 
     setAccomodation(ev: any) {
         const id = ev.target.value;
-        this.booking.accomodatoion = id;
+        this.booking.accomodation = id;
     }
 }
