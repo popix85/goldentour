@@ -11,7 +11,7 @@ export class Booking {
     endDate: Date;
     price: number;
     user: User;
-    transport: Transport;
+    transport: string;
     accomodatoion: Accomodation;
     destination: Destination;
     tourOperator: User;
@@ -23,6 +23,11 @@ export class Booking {
 
     constructor() {
         this.id = 0;
+        this.user = new User();
+        this.accomodatoion = new Accomodation();
+        this.destination = new Destination();
+        this.tourOperator = new User();
+
     }
 }
 

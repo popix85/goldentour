@@ -1,28 +1,43 @@
-<div class="container">
+<form class="booking-form" #f="ngForm">
+
   <div>
     Destinazione:
-      <select (change)="showAccomodation($event)" >
-  <option></option>
-  <option *ngFor="let destination of destinationData" value="{{destination.destinationId}}" >{{destination.name}}</option>
-  </select>
-    Alloggio:
-  <select>
-  <option [ngValue]="accomodation.id" *ngFor="let accomodation of accomodationData " value="{{accomodation.id}}" >{{accomodation.name}}</option>
-  </select>
+    <select (change)="showAccomodation($event)" >
+      <option ngValue="booking.destination" *ngFor="let destination of destinationData"
+              value="{{destination.destinationId}}">{{destination.name}}</option>
+    </select><br>
+     Alloggio:
+    <select (change)="setAccomodation($event)" >
+      <option *ngFor="let accomodation of accomodationData "
+              value="{{accomodation.id}}">{{accomodation.name}}</option>
+    </select>
   </div>
   <div>
     <div>
-      <form action="#">
-        Descrizione: <input type="text" name="description">
-        Numero di persone: <input type="number" name="Npers"><br>
-        Data di inizio <input type="date" name="Sdate">
-        Data di fine <input type="date" name="Edate"><br>
-        <input type="submit" value="Verifica mezzo">
-      </form>
+      <label for="descritpion"> Descrione</label>
+
+      <input name="descritpion" id="descritpion"
+             [(ngModel)]="booking.description"
+             required
+             #description="ngModel" />
     </div>
-   Transporto:
-       <select>
-    <option></option>
+    <div class="form-group">
+      <label for="surname">Cognome</label>
+
+      <input name="surname" id="surname"
+             [(ngModel)]="booking.surname"
+             required
+             #surname="ngModel"/>
+
+      <span [hidden]="surname.valid || surname.pristine" [ngClass]="'invalid-formfield'">Campo obbligatorio!</span>
+    </div>
+      Transporto:
+    <select>
+      <option> Aereo </option>
+      <option> Macchina </option>
+      <option> Treno </option>
+      <option> Astronave </option>
+      <option> Sottomarino </option>
     </select>
   </div>
   <div>
@@ -32,22 +47,24 @@
   </div>
   <div>
     <form>
-      Nome: <input type="text" name="name">
-      Cognome: <input type="text" name="lastname"><br>
-      Username: <input type="text" name="username">
-      Password: <input type="text" name="password"><br>
-      Indirizzo: <input type="text" name="address">
-      Città: <input type="text" name="city"><br>
-      Giorno di nascita: <input type="date" name="Bdate">
-      Luogo di nascita: <input type="text" name="BPlace"><br>
-      Cap: <input type="text" name="cap">
-      Email: <input type="text" name="Mail"><br>
-      <input type="submit" value="Cerca utente" (click)="findUser(name,lastname)">
-      <input type="submit" value="Nuovo utente">
+      Nome: <input type="text" id="namefind" value="{{user.name}}">
+      Cognome: <input type="text" id="lastnamefind" value="{{user.lastname}}"><br>
+      Username: <input type="text" name="username" value="{{user.username}}"><br>
+      Password: <input type="text" name="password" value="{{user.password}}"><br>
+      Indirizzo: <input type="text" name="address" value="{{user.address}}"><br>
+      Città: <input type="text" name="city" value="{{user.city}}"><br>
+      Giorno di nascita: <input type="date" name="Bdate" value="{{user.birtday | date}}"><br>
+      Luogo di nascita: <input type="text" name="BPlace" value="{{user.birthplace}}"><br>
+      Cap: <input type="number" name="cap" value="{{user.cap}}"><br>
+      Email: <input type="text" name="Mail" value="{{user.email}}"><br>
+      <input type="submit" value="Cerca utente" (click)="findUser()">
+      <input type="submit" value="Nuovo utente" (click)="adduser()">
     </form>
   </div>
-  <div><form><input type="submit" value="Inserisci Prenotazione"></form></div>
-</div>
+  <div>
+    <form><input type="submit" value="Inserisci Prenotazione" (click)="createBooking()"></form>
+  </div>
+</form>
 
 
 

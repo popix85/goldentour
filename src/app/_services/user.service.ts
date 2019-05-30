@@ -44,7 +44,8 @@ export class UserService extends BaseApiServiceService {
   }
 
   createUser(user: User) {
-      this.users.splice(0, 0, user);
+    const url = this.buildRemoteRestUrl('security/to/newUser');
+    return this.http.post(url, user);
   }
 
   getUserById(id: number): User {
@@ -57,5 +58,10 @@ export class UserService extends BaseApiServiceService {
       }
     );
     return selected;
+  }
+
+  getUserByName(name: string, lastname: string) {
+    const url = this.buildRemoteRestUrl('security/to/user/Giovanni/Rossi');
+    return this.http.get(url);
   }
 }
