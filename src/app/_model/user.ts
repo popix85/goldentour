@@ -1,4 +1,3 @@
-import {Role} from './role';
 
 export class User {
   id: number;
@@ -14,14 +13,14 @@ export class User {
   birtday: Date;
   birthplace: string;
   cap: number;
-  role: Role;
+  role: string;
 
   constructor() {
     this.id = 0;
   }
 
-  isOperator(): boolean {
-    if (this.role.name === 'Tour_Operator') {
+  public isOperator(): boolean {
+    if (this.role === 'TourOperator') {
       return true;
     }
     return false;

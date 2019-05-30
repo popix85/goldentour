@@ -14,7 +14,8 @@
                 <td>{{b.nameUser}}</td>
                 <td>{{b.lastnameUser}}</td>
                 <td>{{b.nameDestination}}</td>
-                <td><a href="javascript:void(0)" (click)="selectBooking(b.id)">DETTAGLIO</a></td>
+                <td><a href="javascript:void(0)" (click)="selectBooking(b.id)" *ngIf="adminMenu">Modifica</a></td>
+                <td><a href="/dashboard" (click)="deleteBooking(b.id)">Elimina</a></td>
             </tr>
         </tbody>
     </table>

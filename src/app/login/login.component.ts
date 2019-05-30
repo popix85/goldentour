@@ -23,10 +23,7 @@ export class LoginComponent implements OnInit {
       res => {
         const auth = res;
         if (auth) {
-          console.log('authorized');
           this.router.navigate(['dashboard']);
-        } else {
-          console.log('not authorized');
         }
       }
     );

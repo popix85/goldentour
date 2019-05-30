@@ -20,15 +20,12 @@ export class AuthService extends BaseApiServiceService {
             res => {
               if (res) {
                 sessionuser = ( <User> res);
-                console.log('loggato');
                 // Salvataggio dell'utente loggato
                 this.storeSessionUser(sessionuser);
-
                 // Sblocco dell'observable con OK
                 observer.next(true);
                 observer.complete();
               } else {
-                console.log('non loggato');
                 // Sblocco dell'observable con KO
                 observer.next(false);
                 observer.complete();

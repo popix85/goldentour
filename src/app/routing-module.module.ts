@@ -5,7 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './_services/auth-guard.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {BookingService} from './_services/booking.service';
-import {BookingDetailComponent} from './booking-detail/booking-detail.component';
+import {UserComponent} from './user/user.component';
 
 const routes: Routes = [
   {
@@ -23,8 +23,8 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'dashboard/:id/detail',
-    component: BookingDetailComponent,
+    path: 'user/:id',
+    component: UserComponent,
   }
 ];
 

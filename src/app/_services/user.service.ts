@@ -35,19 +35,29 @@ export class UserService extends BaseApiServiceService {
   /**
    * Update dello user selezionato
    * @param {User} user
-   */
+
   updateUser(user: User) {
     const idx = this.users.findIndex((v) => v.id === user.id);
     if ( idx !== -1) {
       this.users[idx] = user;
     }
+  }*/
+
+  updateUser(user: User) {
+    const url = this.buildRemoteRestUrl('security/user/update/' + user.id);
+    return this.http.put(url, user);
   }
 
   createUser(user: User) {
       this.users.splice(0, 0, user);
   }
 
-  getUserById(id: number): User {
+  getUserById(id: number) {
+    const url = this.buildRemoteRestUrl('security/user/' + id);
+    return this.http.get(url);
+  }
+
+  /**getUserById(id: number): User {
     let selected: User = null;
     this.users.forEach(
       user => {
@@ -57,5 +67,5 @@ export class UserService extends BaseApiServiceService {
       }
     );
     return selected;
-  }
+  }*/
 }

@@ -1,9 +1,10 @@
 
 
 <nav *ngIf="showNavbar" role='navigation'>
+    <h3>Benvenuto <a href="javascript:void(0)" (click)="userDetail(currentUser.id)">{{currentUser.username}}</a></h3>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#" [routerLink]="['/users']">Users</a></li>
+        <li><a href="#" [routerLink]="['/dashboard']">Dashboard</a></li>
+        <li *ngIf="adminMenu"><a href="#" [routerLink]="['/dashboard']">Nuova Prenotazione</a></li>
         <li><a href="#">Clients</a></li>
         <li><a href="#" (click)="logout()">Logout</a></li>
     </ul>

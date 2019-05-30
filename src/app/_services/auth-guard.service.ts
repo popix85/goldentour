@@ -13,7 +13,7 @@ export class AuthGuardService implements CanActivate {
       // logged in
       const actualRoute = route.routeConfig.path;
       if (actualRoute === '/') {
-        this.router.navigate(['users']);
+        this.router.navigate(['dashboard']);
       }
       return true;
     }

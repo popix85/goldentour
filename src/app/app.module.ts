@@ -11,8 +11,8 @@ import {LoginComponent} from './login/login.component';
 import {AuthService} from './_services/auth-service.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NavComponent} from './_nav/nav.component';
-import {BookingDetailComponent} from './booking-detail/booking-detail.component';
 import {BookingService} from './_services/booking.service';
+import {UserComponent} from './user/user.component';
 
 const routes: Routes = [
   {
@@ -28,7 +28,7 @@ const routes: Routes = [
     NavComponent,
     LoginComponent,
     DashboardComponent,
-    BookingDetailComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

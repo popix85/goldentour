@@ -1,0 +1,30 @@
+<div>
+    <table>
+        <thead>
+        <th>ID_Utente</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Indirizzo</th>
+        <th>città</th>
+        <th>Compleanno</th>
+        <th>Luogo di nascita</th>
+        </thead>
+
+       <tbody>
+        <td><input type="Text" name="titolo" size="20" value="{{user.id}}" ></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.username"  value="{{user.username}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.email" value="{{user.email}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.name" value="{{user.name}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.lastname" value="{{user.lastname}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.address" value="{{user.address}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.city" value="{{user.city}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.birtday" value="{{user.birtday | date}}"></td>
+        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.birthplace" value="{{user.birthplace}}"></td>
+        <td><a href="javascript:void(0)" (click)="updateUser(user)">MODIFICA</a></td>
+        </tbody>
+    </table>
+    <p *ngIf="update">Modifica effettuata</p>
+    <a href="javascript:void(0)" [routerLink]="['/dashboard']">Indietro</a>
+</div>
