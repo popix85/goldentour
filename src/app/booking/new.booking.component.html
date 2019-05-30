@@ -22,10 +22,28 @@
     <br>
     <div>Data Ritorno<input type="text" name="endDate" size="20" [(ngModel)]="booking.endDate" value="{{booking.endDate}}"></div>
     <br>
-
+  <div>
+    <select (change)="setTransportType($event)">
+      <option></option>
+      <option value="Airplane"> Aereoplano </option>
+      <option value="Car">Automobile</option>
+      <option value="Train">Treno</option>
+    </select>
+  </div>
+    <div>
+      <form>
+        <input type="submit" value="Cerca trasporto" (click)="FindTransport()">
+      </form>
+      <div>
+      <select (click)="setTransport($event)" >
+        <option *ngFor="let transport of transportData "
+                value="{{transport.id}}">{{transport.name}}</option>
+      </select>
+      </div>
+    </div>
     <div>
         <form>
-            <input type="submit" value="Conferma veicolo">
+            <input type="submit" value="Conferma veicolo" (click)="InsertTransport()">
         </form>
     </div>
     <div>

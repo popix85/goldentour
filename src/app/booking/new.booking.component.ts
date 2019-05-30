@@ -9,6 +9,7 @@ import {Destination} from '../_model/destination';
 import {DestinationService} from '../_services/destination-service';
 import {Router} from '@angular/router';
 import {AuthService} from '../_services/auth-service.service';
+import {Transport} from '../_model/transport';
 
 @Component({
     selector: 'app-new-booking',
@@ -22,7 +23,8 @@ export class NewBookingComponent implements OnInit {
     currentUser: User;
     role: Role;
     booking: Booking;
-
+    transportData: Transport[];
+    transport: Transport;
     constructor(private route: Router, private destinationService: DestinationService,
                 private userService: UserService, private bookingService: BookingService, private authService: AuthService) {
         this.accomodationData = new Array<Accomodation>();
@@ -31,6 +33,8 @@ export class NewBookingComponent implements OnInit {
         this.booking = new Booking();
         this.role.id = 1;
         this.role.name = 'User';
+        this.transportData =  new Array<Transport>();
+        this.transport = new Transport();
     }
     ngOnInit(): void {
         this.destinationService.getDestination().subscribe(
@@ -78,7 +82,27 @@ export class NewBookingComponent implements OnInit {
     }
 
     setAccomodation(ev: any) {
-        const id = ev.target.value;
-        this.booking.accomodation = id;
+      this.booking.accomodation = ev.target.value;
     }
+
+  FindTransport() {
+      this.transport.dateFrom = this.booking.startDate;
+      this.transport.dateTo = this.booking.endDate;
+      this.transport.numPosti = this.booking.personNumber;
+
+  }
+
+  setTransportType(ev: any) {
+    const type = ev.target.value;
+    this.transport.vehicle = type;
+    this.transportData = this.destinationService.getTranportByType(type);
+    }
+
+  setTransport(ev: any) {
+    this.transport.idTransport = ev.target.value;
+  }
+
+  InsertTransport() {
+    this.booking.transport = this.transport.idTransport;
+  }
 }
