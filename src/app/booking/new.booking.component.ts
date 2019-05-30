@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 import {Booking} from '../_model/booking';
 import {Destination} from '../_model/destination';
 import {DestinationService} from '../_services/destination-service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../_services/auth-service.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class NewBookingComponent implements OnInit {
     role: Role;
     booking: Booking;
 
-    constructor(private route: Router, private destinationService: DestinationService,
+    constructor(private route: ActivatedRoute, private router: Router, private destinationService: DestinationService,
                 private userService: UserService, private bookingService: BookingService, private authService: AuthService) {
         this.accomodationData = new Array<Accomodation>();
         this.user = new User();
@@ -58,8 +58,9 @@ export class NewBookingComponent implements OnInit {
                 }});
     }
 
-    adduser() {
-        this.user.role = this.role.name;
+    adduser(newUser: User) {
+        this.user = newUser;
+        this.user.role = "User";
         this.userService.createUser(this.user).subscribe(
             response => {
                 this.user = response as User;

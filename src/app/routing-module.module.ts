@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'booking',
-    component: NewBookingComponent
+    component: NewBookingComponent,
   }
 ];
 

@@ -10,7 +10,7 @@ export class User {
   token: string;
   address: string;
   city: string;
-  birtday: Date;
+  birthday: Date;
   birthplace: string;
   cap: number;
   role: string;

@@ -32,10 +32,6 @@ export class DashboardComponent implements OnInit {
         this.adminMenu = this.currentUser.role === 'TourOperator';
     }
 
-    selectBooking(id: number) {
-        this.route.navigate(['dashboard', id, 'detail']);
-    }
-
     deleteBooking(id: number) {
         this.bookingService.deleteBooking(id).subscribe(
             res => {

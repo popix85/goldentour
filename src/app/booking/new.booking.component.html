@@ -2,32 +2,46 @@
 
     <div>
         Destinazione:
-        <select (change)="showAccomodation($event)" >
-            <option *ngFor="let destination of destinationData"
-                    value="{{destination.idDestination}}" >{{destination.name}}</option>
-        </select><br>
+        <select (change)="showAccomodation($event)" ><option *ngFor="let destination of destinationData" value="{{destination.idDestination}}" >{{destination.name}}</option></select>
+        <br>
+        <br>
         Alloggio:
-        <select (click)="setAccomodation($event)" >
-            <option *ngFor="let accomodation of accomodationData "
-                    value="{{accomodation.id}}">{{accomodation.name}}</option>
-        </select>
+        <select (click)="setAccomodation($event)" ><option *ngFor="let accomodation of accomodationData " value="{{accomodation.id}}">{{accomodation.name}}</option></select>
+        <br>
+        <br>
+        Descrizione
+        <input type="Text" name="description" size="20" [(ngModel)]="booking.description"  value="{{booking.description}}">
+        <br>
+        <br>
+        Numero Persone
+        <input type="number" name="personNumber" size="20" [(ngModel)]="booking.personNumber" value="{{booking.personNumber}}">
+        <br>
+        <br>
+        Data Partenza
+        <input type="text" name="startDate" size="20" [(ngModel)]="booking.startDate" value="{{booking.startDate}}">
+        <br>
+        <br>
+        Data Ritorno
+        <input type="text" name="endDate" size="20" [(ngModel)]="booking.endDate" value="{{booking.endDate}}">
+        <br>
+        <br>
     </div>
 
+    <br>
+    <br>
+    <br>
 
-    <div>Descrizione<input type="Text" name="description" size="20" [(ngModel)]="booking.description"  value="{{booking.description}}"></div>
-    <br>
-    <div>Numero Persone<input type="number" name="personNumber" size="20" [(ngModel)]="booking.personNumber" value="{{booking.personNumber}}"></div>
-    <br>
-    <div>Data Partenza<input type="text" name="startDate" size="20" [(ngModel)]="booking.startDate" value="{{booking.startDate}}"></div>
-    <br>
-    <div>Data Ritorno<input type="text" name="endDate" size="20" [(ngModel)]="booking.endDate" value="{{booking.endDate}}"></div>
-    <br>
 
     <div>
         <form>
             <input type="submit" value="Conferma veicolo">
         </form>
     </div>
+
+    <br>
+    <br>
+    <br>
+
     <div>
         <form>
 
@@ -45,7 +59,7 @@
             <br>
             <div>Città<input type="Text" name="city" size="20" [(ngModel)]="user.city" value="{{user.city}}"></div>
             <br>
-            <div>Data di nascita<input type="Text" name="birthday" size="20" [(ngModel)]="user.birtday" value="{{user.birtday | date}}"></div>
+            <div>Data di nascita<input type="Text" name="birthday" size="20" [(ngModel)]="user.birthday" value="{{user.birthday}}"></div>
             <br>
             <div>Luogo di nascita<input type="Text" name="birthplace" size="20" [(ngModel)]="user.birthplace" value="{{user.birthplace}}"></div>
             <br>
@@ -53,7 +67,7 @@
             <br>
             <div><input type="submit" value="Cerca utente" (click)="findUser(user)"></div>
             <br>
-            <div><input type="submit" value="Nuovo utente" (click)="adduser()"></div>
+            <div><input type="submit" value="Nuovo utente" (click)="adduser(user)"></div>
         </form>
     </div>
     <div>
