@@ -1,92 +1,91 @@
-<form class="booking-form" #f="ngForm">
-
-    <div>
-        Destinazione:
-        <select (change)="showAccomodation($event)" ><option *ngFor="let destination of destinationData" value="{{destination.idDestination}}" >{{destination.name}}</option></select>
-        <br>
-        <br>
-        Alloggio:
-        <select (click)="setAccomodation($event)" ><option *ngFor="let accomodation of accomodationData " value="{{accomodation.id}}">{{accomodation.name}}</option></select>
-        <br>
-        <br>
-        Descrizione
-        <input type="Text" name="description" size="20" [(ngModel)]="booking.description"  value="{{booking.description}}">
-        <br>
-        <br>
-        Numero Persone
-        <input type="number" name="personNumber" size="20" [(ngModel)]="booking.personNumber" value="{{booking.personNumber}}">
-        <br>
-        <br>
-        Data Partenza
-        <input type="text" name="startDate" size="20" [(ngModel)]="booking.startDate" value="{{booking.startDate}}">
-        <br>
-        <br>
-        Data Ritorno
-        <input type="text" name="endDate" size="20" [(ngModel)]="booking.endDate" value="{{booking.endDate}}">
-        <br>
-        <br>
+<div class="container bg-light">
+<form #f="ngForm">
+    <div class="form-group">
+        <label>Destinazione</label>
+        <select class="form-control" (change)="showAccomodation($event)">
+            <option *ngFor="let destination of destinationData" value="{{destination.idDestination}}" >{{destination.name}}</option>
+        </select>
     </div>
-
-    <br>
-    <br>
-    <br>
-
-
-    <div>
-        <select (change)="setTransportType($event)">
+    <div class="form-group">
+        <label>Alloggio</label>
+        <select class="form-control" (click)="setAccomodation($event)">
+            <option *ngFor="let accomodation of accomodationData " value="{{accomodation.id}}">{{accomodation.name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="descrizione">Descrizione</label>
+        <input class="form-control" id="descrizione" type="Text" name="description" size="20" [(ngModel)]="booking.description"  value="{{booking.description}}">
+    </div>
+    <div class="form-group">
+        <label for="numeropersone">Numero Persone</label>
+        <input class="form-control" id="numeropersone" type="number" name="personNumber" size="20" [(ngModel)]="booking.personNumber" value="{{booking.personNumber}}">
+    </div>
+    <div class="form-group">
+        <label for="numeropersone">Data Partenza</label>
+        <input class="form-control" id="datapartenza" type="text" name="startDate" size="20" [(ngModel)]="booking.startDate" value="{{booking.startDate}}">
+    </div>
+    <div class="form-group">
+        <label for="numeropersone">Data Ritorno</label>
+        <input class="form-control" id="dataritorno" type="text" name="enddate" size="20" [(ngModel)]="booking.endDate" value="{{booking.endDate}}">
+    </div>
+    <div class="form-group">
+        <label>Tipo Veicolo</label>
+        <select class="form-control" (change)="setTransportType($event)">
             <option></option>
             <option value="Airplaine"> Aereoplano </option>
             <option value="Cars">Automobile</option>
             <option value="Train">Treno</option>
         </select>
     </div>
-    <div>
-
-        <div>
-            <select (click)="setTransport($event)" >
-                <option *ngFor="let transport of transportData "
-                        value="{{transport.id}}">{{transport.name}}</option>
-            </select>
-        </div>
+    <div class="form-group">
+        <label>Veicolo</label>
+        <select class="form-control" (click)="setTransport($event)">
+            <option *ngFor="let transport of transportData " value="{{transport.id}}">{{transport.name}}</option>
+        </select>
     </div>
-
-    <form>
-        <input type="submit" value="Conferma veicolo" (click)="InsertTransport()">
-    </form>
-
-    <br>
-    <br>
-    <br>
-
-    <div>
-        <form>
-
-            <div>Username<input type="Text" name="username" size="20" [(ngModel)]="user.username"  value="{{user.username}}"></div>
-            <br>
-            <div>Password<input type="Text" name="password" size="20" [(ngModel)]="user.password" value="{{user.password}}"></div>
-            <br>
-            <div>Email<input type="Text" name="email" size="20" [(ngModel)]="user.email" value="{{user.email}}"></div>
-            <br>
-            <div>Nome<input type="Text" name="name" size="20" [(ngModel)]="user.name" value="{{user.name}}"></div>
-            <br>
-            <div>Cognome<input type="Text" name="lastname" size="20" [(ngModel)]="user.lastname" value="{{user.lastname}}"></div>
-            <br>
-            <div>Indirizzo<input type="Text" name="address" size="20" [(ngModel)]="user.address" value="{{user.address}}"></div>
-            <br>
-            <div>Città<input type="Text" name="city" size="20" [(ngModel)]="user.city" value="{{user.city}}"></div>
-            <br>
-            <div>Data di nascita<input type="Text" name="birthday" size="20" [(ngModel)]="user.birthday" value="{{user.birthday}}"></div>
-            <br>
-            <div>Luogo di nascita<input type="Text" name="birthplace" size="20" [(ngModel)]="user.birthplace" value="{{user.birthplace}}"></div>
-            <br>
-            <div>Cap<input type="Text" name="cap" size="20" [(ngModel)]="user.cap" value="{{user.cap}}"></div>
-            <br>
-            <div><input type="submit" value="Cerca utente" (click)="findUser(user)"></div>
-            <br>
-            <div><input type="submit" value="Nuovo utente" (click)="adduser(user)"></div>
-        </form>
+    <button type="submit" class="btn btn-primary" value="Conferma veicolo" (click)="InsertTransport()">Conferma Veicolo</button>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" id="username" type="Text" name="username" size="20" [(ngModel)]="user.username"  value="{{user.username}}">
     </div>
-    <div>
-        <form><input type="submit" value="Inserisci Prenotazione" (click)="createBooking(booking)"></form>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" id="password" type="Text" name="password" size="20" [(ngModel)]="user.password" value="{{user.password}}">
     </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" id="email" type="Text" name="email" size="20" [(ngModel)]="user.email" value="{{user.email}}">
+    </div>
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input class="form-control" id="name" type="Text" name="name" size="20" [(ngModel)]="user.name" value="{{user.name}}">
+    </div>
+    <div class="form-group">
+        <label for="lastname">Cognome</label>
+        <input class="form-control" id="lastname" type="Text" name="lastname" size="20" [(ngModel)]="user.lastname" value="{{user.lastname}}">
+    </div>
+    <div class="form-group">
+        <label for="address">Indirizzo</label>
+        <input class="form-control" id="address" type="Text" name="address" size="20" [(ngModel)]="user.address" value="{{user.address}}">
+    </div>
+    <div class="form-group">
+        <label for="city">Città</label>
+        <input class="form-control" id="city" type="Text" name="city" size="20" [(ngModel)]="user.city" value="{{user.city}}">
+    </div>
+    <div class="form-group">
+        <label for="birthday">Data di nascita</label>
+        <input class="form-control" id="birthday" type="Text" name="birthday" size="20" [(ngModel)]="user.birthday" value="{{user.birthday}}">
+    </div>
+    <div class="form-group">
+        <label for="birthplace">Luogo di nascita</label>
+        <input class="form-control" id="birthplace" type="Text" name="birthplace" size="20" [(ngModel)]="user.birthplace" value="{{user.birthplace}}">
+    </div>
+    <div class="form-group">
+        <label for="cap">Cap</label>
+        <input class="form-control" id="cap" type="Text" name="cap" size="20" [(ngModel)]="user.cap" value="{{user.cap}}">
+    </div>
+    <button class="btn btn-primary" type="submit" value="Cerca utente" (click)="findUser(user)">Cerca Utente</button>
+    <button class="btn btn-primary" type="submit" value="Nuovo utente" (click)="adduser(user)">Crea Utente</button>
+    <button class="btn btn-primary" type="submit" value="Inserisci Prenotazione" (click)="createBooking(booking)">CONFERMA PRENOTAZIONE</button>
 </form>
+</div>

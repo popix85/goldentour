@@ -1,30 +1,26 @@
-<div>
-    <table>
-        <thead>
-        <th>ID_Utente</th>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Indirizzo</th>
-        <th>città</th>
-        <th>Compleanno</th>
-        <th>Luogo di nascita</th>
-        </thead>
 
-       <tbody>
-        <td><input type="Text" name="titolo" size="20" value="{{user.id}}" ></td>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cognome</th>
+        <th scope="col">Indirizzo</th>
+        <th scope="col">città</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="background: white">
         <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.username"  value="{{user.username}}"></td>
         <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.email" value="{{user.email}}"></td>
         <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.name" value="{{user.name}}"></td>
         <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.lastname" value="{{user.lastname}}"></td>
         <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.address" value="{{user.address}}"></td>
         <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.city" value="{{user.city}}"></td>
-        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.birthday" value="{{user.birthday | date}}"></td>
-        <td><input type="Text" name="titolo" size="20" [(ngModel)]="user.birthplace" value="{{user.birthplace}}"></td>
-        <td><a href="javascript:void(0)" (click)="updateUser(user)">MODIFICA</a></td>
-        </tbody>
-    </table>
-    <p *ngIf="update">Modifica effettuata</p>
-    <a href="javascript:void(0)" [routerLink]="['/dashboard']">Indietro</a>
-</div>
+        <td><a href="javascript:void(0)" (click)="updateUser(user)">Modifica</a></td>
+    </tr>
+
+    </tbody>
+</table>
