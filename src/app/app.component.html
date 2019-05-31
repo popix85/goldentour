@@ -1,4 +1,6 @@
-<div class="container">
+
+
+  <!--
   <div class="row">
     <div class="col-sm-2">
       <img width="100" alt="GoldenTour Logo" src="/img/GoldenTour_Logo.jpg">
@@ -7,11 +9,38 @@
       <h1>{{ title }}</h1>
     </div>
   </div>
-
+-->
   <div *ngIf="showNavbar">
     <app-nav [showNavbar]="showNavbar"></app-nav>
   </div>
 
-  <router-outlet (activate)="onActivate()"></router-outlet>
 
-</div>
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image" style="background-image:url(../assets/img/Back-Login.jpg)"></div>
+    <div class="content">
+
+        <router-outlet (activate)="onActivate()"></router-outlet>
+
+
+      <footer class="footer">
+        <div class=" container ">
+          <nav>
+            <ul>
+              <li>
+                <a href="http://goldentour.com/aboutus">
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy;
+            <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Designed and
+            Coded by GoldenTour
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
