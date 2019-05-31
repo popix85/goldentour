@@ -5,7 +5,6 @@
     <ul>
         <li><a href="#" [routerLink]="['/dashboard']">Dashboard</a></li>
         <li *ngIf="adminMenu"><a href="javascript:void(0)" [routerLink]="['/booking']">Nuova Prenotazione</a></li>
-        <li><a href="#">Clients</a></li>
         <li><a href="#" (click)="logout()">Logout</a></li>
     </ul>
 </nav>

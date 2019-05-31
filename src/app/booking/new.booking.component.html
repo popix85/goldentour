@@ -33,10 +33,26 @@
 
 
     <div>
-        <form>
-            <input type="submit" value="Conferma veicolo">
-        </form>
+        <select (change)="setTransportType($event)">
+            <option></option>
+            <option value="Airplaine"> Aereoplano </option>
+            <option value="Cars">Automobile</option>
+            <option value="Train">Treno</option>
+        </select>
     </div>
+    <div>
+
+        <div>
+            <select (click)="setTransport($event)" >
+                <option *ngFor="let transport of transportData "
+                        value="{{transport.id}}">{{transport.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <form>
+        <input type="submit" value="Conferma veicolo" (click)="InsertTransport()">
+    </form>
 
     <br>
     <br>

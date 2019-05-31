@@ -1,7 +1,4 @@
-import {User} from './user';
-import {Transport} from './transport';
-import {Accomodation} from './accomodation';
-import {Destination} from './destination';
+
 
 export class Booking {
     id: number;

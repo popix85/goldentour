@@ -30,5 +30,4 @@ export class NavComponent implements OnInit {
     userDetail(id: number) {
         this.router.navigate(['user', id]);
     }
-
 }

@@ -9,6 +9,7 @@ import {Destination} from '../_model/destination';
 import {DestinationService} from '../_services/destination-service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../_services/auth-service.service';
+import {Trasport} from '../_model/trasport';
 
 @Component({
     selector: 'app-new-booking',
@@ -22,6 +23,8 @@ export class NewBookingComponent implements OnInit {
     currentUser: User;
     role: Role;
     booking: Booking;
+    transportData: Trasport[];
+    transport: Trasport;
 
     constructor(private route: ActivatedRoute, private router: Router, private destinationService: DestinationService,
                 private userService: UserService, private bookingService: BookingService, private authService: AuthService) {
@@ -31,6 +34,8 @@ export class NewBookingComponent implements OnInit {
         this.booking = new Booking();
         this.role.id = 1;
         this.role.name = 'User';
+        this.transportData =  new Array<Trasport>();
+        this.transport = new Trasport();
     }
     ngOnInit(): void {
         this.destinationService.getDestination().subscribe(
@@ -71,7 +76,6 @@ export class NewBookingComponent implements OnInit {
         booking.user = this.user.id;
         booking.tourOperator = this.currentUser.id;
         booking.price = 100;
-        booking.transport = 1;
         this.bookingService.newBooking(booking).subscribe(
             response => {
                 this.booking = response as Booking;
@@ -82,4 +86,26 @@ export class NewBookingComponent implements OnInit {
         const id = ev.target.value;
         this.booking.accomodation = id;
     }
+
+    FindTransport() {
+        this.transport.dateFrom = this.booking.startDate;
+        this.transport.dateTo = this.booking.endDate;
+        this.transport.numPosti = this.booking.personNumber;
+
+    }
+
+    setTransportType(ev: any) {
+        const type = ev.target.value;
+        this.transport.vehicle = type;
+        this.transportData = this.destinationService.getTranportByType(type);
+    }
+
+    setTransport(ev: any) {
+        this.transport.idTransport = ev.target.value;
+    }
+
+    InsertTransport() {
+        this.booking.transport = this.transport.idTransport;
+    }
+
 }
