@@ -14,6 +14,7 @@ import {BookingService} from './_services/booking.service';
 import {UserComponent} from './user/user.component';
 import {NewBookingComponent} from './booking/new.booking.component';
 import {DestinationService} from './_services/destination-service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { enableTracing: true }),
     AppRoutingModuleModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [UserService, AuthService, BookingService, DestinationService],
   bootstrap: [AppComponent],

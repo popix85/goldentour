@@ -1,10 +1,15 @@
 
-
-<nav *ngIf="showNavbar" role='navigation'>
-    <h3>Benvenuto <a href="javascript:void(0)" (click)="userDetail(currentUser.id)">{{currentUser.username}}</a></h3>
-    <ul>
+<nav class="navbar navbar-expand-lg navbar-light" *ngIf="showNavbar" role='navigation'>
+    <a class="navbar-brand">
+        Golden Tour
+    </a>
+    <div class="nav-item justify-content-center">
+    <p>Benvenuto <a href="javascript:void(0)" (click)="userDetail(currentUser.id)">{{currentUser.username}}</a></p></div>
+    <div class="nav-item">
+    <ul class="justify-content-end">
         <li><a href="#" [routerLink]="['/dashboard']">Dashboard</a></li>
         <li *ngIf="adminMenu"><a href="javascript:void(0)" [routerLink]="['/booking']">Nuova Prenotazione</a></li>
         <li><a href="#" (click)="logout()">Logout</a></li>
     </ul>
+    </div>
 </nav>
