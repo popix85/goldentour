@@ -28,18 +28,18 @@ export class DestinationService extends BaseApiServiceService {
         const url = this.buildRemoteRestUrl('booking/to/showAccomodation/' + id);
         return this.http.get(url);
     }
-  getTranportByType(Type: string): Transport[] {
-   /** let selected: Transport[];
-    selected = new Array<Transport>();
-    this.transports.forEach(
+  getTranportByType(Type: string, numPost: number): Transport[] {
+   let selected: Transport[];
+   selected = new Array<Transport>();
+   this.transports.forEach(
       transport => {
         if (transport.vehicle === Type) {
-          selected[this.idx] =  transport;
+          selected.push(transport);
         }
       }, this.idx
     );
-    return selected;*/
-   return this.transports;
+   return selected;
+   // return this.transports;
   }
 
 }

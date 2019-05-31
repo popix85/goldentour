@@ -74,7 +74,6 @@ export class NewBookingComponent implements OnInit {
         booking.user = this.user.id;
         booking.tourOperator = this.currentUser.id;
         booking.price = 100;
-        booking.transport = 1;
         this.bookingService.newBooking(booking).subscribe(
             response => {
                 this.booking = response as Booking;
@@ -95,7 +94,7 @@ export class NewBookingComponent implements OnInit {
   setTransportType(ev: any) {
     const type = ev.target.value;
     this.transport.vehicle = type;
-    this.transportData = this.destinationService.getTranportByType(type);
+    this.transportData = this.destinationService.getTranportByType(type, this.booking.personNumber);
     }
 
   setTransport(ev: any) {
